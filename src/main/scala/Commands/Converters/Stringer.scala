@@ -1,6 +1,6 @@
 package Commands.Converters
 
-import Models.AsciiImage
+import Models.Images.AsciiImage
 
 class Stringer extends Converter[AsciiImage, String] {
   override def convert(source: AsciiImage): String = {
@@ -9,7 +9,7 @@ class Stringer extends Converter[AsciiImage, String] {
     for (y <- 0 until source.getHeight) {
       var row = ""
       for (x <- 0 until source.getWidth) {
-        row += source.getPixel(y, x)
+        row += source.getPixel(y, x).getValue
       }
       row += '\n'
       pixelGrid += row

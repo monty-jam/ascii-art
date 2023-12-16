@@ -1,6 +1,8 @@
-package Models
+package Models.Images
 
-class Image[T] (protected val pixelGrid: Seq[Seq[T]]) {
+import Models.Pixels.Pixel
+
+class Image[T] (protected val pixelGrid: Seq[Seq[Pixel[T]]]) {
   if (pixelGrid.isEmpty)
     throw new Exception("0 image height is restricted.")
 
@@ -15,7 +17,7 @@ class Image[T] (protected val pixelGrid: Seq[Seq[T]]) {
 
   def getHeight: Int = height
   def getWidth: Int = width
-  def getPixel(row: Int, column: Int): T = {
+  def getPixel(row: Int, column: Int): Pixel[T] = {
     if (row > height - 1 || row < 0)
       throw new Exception("y coordinate is out of bounds.")
 

@@ -4,7 +4,7 @@ import Commands.Converters.Symbolers.{LinearSymboler, NonLinearSymboler}
 import Commands.Converters.{Grayscaler, Stringer}
 import Commands.Exporters.FileOutputExporter
 import Commands.Loaders.FileRgbImageLoader
-import Models.RgbImage
+import Models.Images.RgbImage
 
 import java.awt.Image
 import java.io.File

@@ -1,6 +1,7 @@
 package Commands.Filters
 
-import Models.{AsciiImage, GrayscaleImage}
+import Models.Images.GrayscaleImage
+import Models.Pixels.GrayscalePixel
 
 class FlipFilter(axis: String) extends GrayscaleFilter {
   if (axis != 'x' || axis != 'y')
@@ -8,16 +9,16 @@ class FlipFilter(axis: String) extends GrayscaleFilter {
 
   override def filter(source: GrayscaleImage): GrayscaleImage = {
     for (y <- 0 until source.getHeight) {
-      var row: List[Float] = List()
+      var row: List[GrayscalePixel] = List()
       for (x <- 0 until source.getWidth) {
-        var pixel = 0.toFloat
+        var pixelValue = 0.toFloat
         if (axis == "x") {
-          pixel = source.getPixel(source.getHeight - y - 1, x)
+          pixelValue = source.getPixel(source.getHeight - y - 1, x).getValue
         } else { // (axis == "y")
-          pixel = source.getPixel(y, source.getWidth - x - 1)
+          pixelValue = source.getPixel(y, source.getWidth - x - 1).getValue
         }
 
-        row = row :+ pixel
+        row = row :+ GrayscalePixel(pixelValue)
       }
       pixelGrid = pixelGrid :+ row
     }

@@ -1,6 +1,7 @@
 package Commands.Loaders
 
-import Models.{Image, RgbImage}
+import Models.Images.{Image, RgbImage}
+import Models.Pixels.RgbPixel
 
 import java.awt.image.BufferedImage
 import java.io.File
@@ -23,12 +24,12 @@ class FileRgbImageLoader(pathFile: String) extends Loader[RgbImage] {
     }
 
     var image = getImage
-    var pixelGrid: List[List[Int]] = List()
+    var pixelGrid: List[List[RgbPixel]] = List()
 
     for (y <- 0 until image.getHeight()) {
-      var row: List[Int] = List()
+      var row: List[RgbPixel] = List()
       for (x <- 0 until image.getWidth()) {
-        val pixel = image.getRGB(x, image.getHeight() - y - 1)
+        val pixel = RgbPixel(image.getRGB(x, image.getHeight() - y - 1))
         row = row :+ pixel
       }
       pixelGrid = row :: pixelGrid
