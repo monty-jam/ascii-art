@@ -1,19 +1,20 @@
 package Commands.Converters.Symbolers
 
-import Models.{AsciiImage, GrayscaleImage}
+import Models.Images.{AsciiImage, GrayscaleImage}
+import Models.Pixels.AsciiPixel
 
 class LinearSymboler(table: String) extends Symboler {
   override def convert(source: GrayscaleImage): AsciiImage = {
-    var pixelGrid: List[List[Char]] = List()
+    var pixelGrid: List[List[AsciiPixel]] = List()
     val separation = 255 / table.length + 1
 
     for (y <- 0 until source.getHeight) {
-      var row: List[Char] = List()
+      var row: List[AsciiPixel] = List()
       for (x <- 0 until source.getWidth) {
-        val pixel = source.getPixel(y, x)
-        val symbol = table((pixel / separation).toInt)
+        val pixelValue = source.getPixel(y, x).getValue
+        val symbol = table((pixelValue / separation).toInt)
 
-        row = row :+ symbol
+        row = row :+ AsciiPixel(symbol)
       }
       pixelGrid = pixelGrid :+ row
     }

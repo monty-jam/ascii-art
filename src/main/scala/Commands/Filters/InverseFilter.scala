@@ -1,16 +1,17 @@
 package Commands.Filters
 
-import Models.{AsciiImage, GrayscaleImage}
+import Models.Images.GrayscaleImage
+import Models.Pixels.GrayscalePixel
 
 class InverseFilter extends GrayscaleFilter {
 
   override def filter(source: GrayscaleImage): GrayscaleImage = {
     for (y <- 0 until source.getHeight) {
-      var row: List[Float] = List()
+      var row: List[GrayscalePixel] = List()
       for (x <- 0 until source.getWidth) {
-        val pixel = 255 - source.getPixel(y, x)
+        val pixelValue = 255 - source.getPixel(y, x).getValue
 
-        row = row :+ pixel
+        row = row :+ GrayscalePixel(pixelValue)
       }
       pixelGrid = pixelGrid :+ row
     }

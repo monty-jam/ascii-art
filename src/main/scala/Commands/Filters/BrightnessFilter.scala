@@ -1,20 +1,21 @@
 package Commands.Filters
 
-import Models.{AsciiImage, GrayscaleImage}
+import Models.Images.GrayscaleImage
+import Models.Pixels.GrayscalePixel
 
 class BrightnessFilter(brightness: Int) extends GrayscaleFilter {
 
   override def filter(source: GrayscaleImage): GrayscaleImage = {
     for (y <- 0 until source.getHeight) {
-      var row: List[Float] = List()
+      var row: List[GrayscalePixel] = List()
       for (x <- 0 until source.getWidth) {
-        var pixel = source.getPixel(y, x) + brightness
-        if (pixel > 255)
-          pixel = 255
-        else if (pixel < 0)
-          pixel = 0
+        var pixelValue = source.getPixel(y, x).getValue + brightness
+        if (pixelValue > 255)
+          pixelValue = 255
+        else if (pixelValue < 0)
+          pixelValue = 0
 
-        row = row :+ pixel
+        row = row :+ GrayscalePixel(pixelValue)
       }
       pixelGrid = pixelGrid :+ row
     }

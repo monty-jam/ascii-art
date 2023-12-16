@@ -5,7 +5,7 @@ import Commands.Converters.{Grayscaler, Stringer}
 import Commands.Exporters.{FileOutputExporter, StdOutputExporter, StreamTextExporter, TextExporter}
 import Commands.Filters.{BrightnessFilter, FlipFilter, GrayscaleFilter, InverseFilter}
 import Commands.Loaders.{FileRgbImageLoader, GeneratorRgbImageLoader, Loader, RgbImageLoader}
-import Models.RgbImage
+import Models.Images.RgbImage
 
 import java.io.File
 import scala.annotation.tailrec
