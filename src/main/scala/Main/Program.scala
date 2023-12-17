@@ -3,7 +3,7 @@ package Main
 import Commands.Converters.Symbolers.{LinearSymboler, NonLinearSymboler, Symboler}
 import Commands.Converters.{Grayscaler, Stringer}
 import Commands.Exporters.{FileOutputExporter, StdOutputExporter, StreamTextExporter, TextExporter}
-import Commands.Filters.{BrightnessFilter, FlipFilter, GrayscaleFilter, InverseFilter}
+import Commands.Filters.{Axis, BrightnessGrayscaleFilter, FlipGrayscaleFilter, GrayscaleFilter, InverseGrayscaleFilter}
 import Commands.Loaders.{FileRgbImageLoader, GeneratorRgbImageLoader, Loader, RgbImageLoader}
 import Models.Images.RgbImage
 
@@ -29,13 +29,18 @@ class Program {
         rgbImageLoaders += new GeneratorRgbImageLoader
         parse(tail)
       case "--brightness" :: value :: tail =>
-        filters += new BrightnessFilter(value.toInt)
+        filters += new BrightnessGrayscaleFilter(value.toInt)
         parse(tail)
       case "--flip" :: axis :: tail =>
-        filters += new FlipFilter(axis)
+        if (axis == "x")
+          filters += new FlipGrayscaleFilter(Axis.X)
+        else if (axis == "y")
+          filters += new FlipGrayscaleFilter(Axis.Y)
+        else
+          throw new Exception("Invalid axis argument for --flip.")
         parse(tail)
       case "--invert" :: tail =>
-        filters += new InverseFilter
+        filters += new InverseGrayscaleFilter
         parse(tail)
       case "--table" :: "paulBorkes" :: tail =>
         symbolers += new LinearSymboler(" .:-=+*#%@")
