@@ -3,9 +3,10 @@ package Main
 import Commands.Converters.Symbolers.{LinearSymboler, NonLinearSymboler, Symboler}
 import Commands.Converters.{Grayscaler, Stringer}
 import Commands.Exporters.{FileOutputExporter, StdOutputExporter, StreamTextExporter, TextExporter}
-import Commands.Filters.{Axis, BrightnessGrayscaleFilter, FlipGrayscaleFilter, GrayscaleFilter, InverseGrayscaleFilter}
-import Commands.Loaders.{FileRgbImageLoader, GeneratorRgbImageLoader, Loader, RgbImageLoader}
+import Commands.Filters.{BrightnessGrayscaleFilter, FlipGrayscaleFilter, GrayscaleFilter, InverseGrayscaleFilter, XAxisFlipGrayscaleFilter, YAxisFlipGrayscaleFilter}
+import Commands.Loaders.{FileLoader, GeneratorRgbImageLoader, JpgRgbImageLoader, Loader, PngRgbImageLoader, RgbImageLoader}
 import Models.Images.RgbImage
+import Models.PathFiles.{FilePath, JpgFilePath, PngFilePath}
 
 import java.io.File
 import scala.annotation.tailrec
@@ -22,8 +23,13 @@ class Program {
   @tailrec
   final def parse(args: List[String]): Unit = {
     args match {
-      case "--image-file" :: filePath :: tail =>
-        rgbImageLoaders += new FileRgbImageLoader(filePath)
+      case "--image-file" :: filePathValue :: tail =>
+        if (filePathValue.split('.').last == "jpg")
+          rgbImageLoaders += new JpgRgbImageLoader(JpgFilePath(filePathValue))
+        else if (filePathValue.split('.').last == "png")
+          rgbImageLoaders += new PngRgbImageLoader(PngFilePath(filePathValue))
+        else
+          throw new Exception("Invalid image file format.")
         parse(tail)
       case "--image-generator" :: tail =>
         rgbImageLoaders += new GeneratorRgbImageLoader
@@ -33,9 +39,9 @@ class Program {
         parse(tail)
       case "--flip" :: axis :: tail =>
         if (axis == "x")
-          filters += new FlipGrayscaleFilter(Axis.X)
+          filters += new XAxisFlipGrayscaleFilter
         else if (axis == "y")
-          filters += new FlipGrayscaleFilter(Axis.Y)
+          filters += new YAxisFlipGrayscaleFilter
         else
           throw new Exception("Invalid axis argument for --flip.")
         parse(tail)
