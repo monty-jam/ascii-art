@@ -2,6 +2,6 @@ package commands.loaders
 
 import org.scalatest.FunSuite
 
-class JpgRgbImageLoader extends FunSuite {
+class PngRgbImageLoaderTests extends FunSuite {
 
 }
