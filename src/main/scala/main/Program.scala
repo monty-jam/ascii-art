@@ -24,7 +24,7 @@ class Program {
   @tailrec
   final def parse(args: List[String]): Unit = {
     args match {
-      case "--image-file" :: filePathValue :: tail =>
+      case "--image" :: filePathValue :: tail =>
         if (filePathValue.split('.').last == "jpg")
           rgbImageLoaders += new JpgRgbImageLoader(JpgFilePath(filePathValue))
         else if (filePathValue.split('.').last == "png")
@@ -32,7 +32,7 @@ class Program {
         else
           throw new Exception("Invalid image file format.")
         parse(tail)
-      case "--image-generator" :: tail =>
+      case "--image-random" :: tail =>
         rgbImageLoaders += new GeneratorRgbImageLoader
         parse(tail)
       case "--brightness" :: value :: tail =>
