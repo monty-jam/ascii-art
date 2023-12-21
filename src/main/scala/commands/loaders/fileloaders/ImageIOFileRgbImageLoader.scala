@@ -1,14 +1,14 @@
 package commands.loaders.fileloaders
 
 import models.Images.RgbImage
-import models.PathFiles.FilePath
+import models.FilePaths.FilePath
 import models.Pixels.RgbPixel
 
 import java.awt.image.BufferedImage
 import java.io.File
 import javax.imageio.ImageIO
 
-class ImageIORgbImageLoader(override val filePath: FilePath) extends FileRgbImageLoader[BufferedImage](filePath) {
+class ImageIOFileRgbImageLoader(override val filePath: FilePath) extends FileRgbImageLoader[BufferedImage](filePath) {
   override protected def readFile(): BufferedImage = {
     try {
       ImageIO.read(new File(filePath.getFilePathValue))

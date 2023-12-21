@@ -7,7 +7,7 @@ import commands.filters._
 import commands.loaders.fileloaders.{JpgRgbImageLoader, PngRgbImageLoader}
 import commands.loaders.{GeneratorRgbImageLoader, Loader}
 import models.Images.RgbImage
-import models.PathFiles.{JpgFilePath, PngFilePath}
+import models.FilePaths.{JpgFilePath, PngFilePath}
 
 import java.io.File
 import scala.annotation.tailrec

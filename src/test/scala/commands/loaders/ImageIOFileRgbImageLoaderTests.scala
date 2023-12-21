@@ -1,20 +1,20 @@
 package commands.loaders
 
-import commands.loaders.fileloaders.PngRgbImageLoader
-import models.FilePaths.PngFilePath
+import commands.loaders.fileloaders.ImageIOFileRgbImageLoader
+import models.FilePaths.FilePath
 import models.Images.RgbImage
 import org.scalatest.FunSuite
 
 import java.awt.Color
 
-class PngRgbImageLoaderTests extends FunSuite {
+class ImageIOFileRgbImageLoaderTests extends FunSuite {
 
-  def loaded(pngFilePath: PngFilePath): RgbImage = {
-    new PngRgbImageLoader(pngFilePath).load()
+  def loaded(filePath: FilePath): RgbImage = {
+    new ImageIOFileRgbImageLoader(filePath).load()
   }
 
-  test("Load rainbow png") {
-    val result = loaded(PngFilePath("examples/rainbow.png"))
+  test("Load some ImageIO file (png 1)") {
+    val result = loaded(new FilePath("examples/rainbow.png"))
     assert(result.getPixel(0, 0).getValue == new Color(0xFF0000).getRGB)
     assert(result.getPixel(0, 1).getValue == new Color(0xFF7F00).getRGB)
     assert(result.getPixel(0, 2).getValue == new Color(0xFFFF00).getRGB)
@@ -24,8 +24,8 @@ class PngRgbImageLoaderTests extends FunSuite {
     assert(result.getPixel(0, 6).getValue == new Color(0x4B0082).getRGB)
   }
 
-  test("Load shades of gray png") {
-    val result = loaded(PngFilePath("examples/shadesOfGray.png"))
+  test("Load some ImageIO file (png 2)") {
+    val result = loaded(new FilePath("examples/shadesOfGray.png"))
     assert(result.getPixel(0, 0).getValue == new Color(0x000000).getRGB)
     assert(result.getPixel(0, 1).getValue == new Color(0x1c1c1c).getRGB)
     assert(result.getPixel(0, 2).getValue == new Color(0x383838).getRGB)
@@ -38,8 +38,14 @@ class PngRgbImageLoaderTests extends FunSuite {
     assert(result.getPixel(1, 4).getValue == new Color(0xfcfcfc).getRGB)
   }
 
-  test("Load non-existent png") {
-    assertThrows[Exception](loaded(PngFilePath("examples/nonExistentFile.png")))
+  test("Load some ImageIO file (jpg)") {
+    val result = loaded(new FilePath("examples/blackWhite.jpg"))
+//    assert(result.getPixel(0, 0).getValue == new Color(0x000000).getRGB)
+//    assert(result.getPixel(0, 1).getValue == new Color(0xFFFFFF).getRGB)
+  }
+
+  test("Load non-existent file with incorrect filePath") {
+    assertThrows[Exception](loaded(new FilePath("examples/nonExistentFile")))
   }
 
 }

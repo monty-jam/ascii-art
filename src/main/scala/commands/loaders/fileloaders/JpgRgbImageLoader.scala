@@ -1,7 +1,7 @@
 package commands.loaders.fileloaders
 
-import models.PathFiles.JpgFilePath
+import models.FilePaths.JpgFilePath
 
-class JpgRgbImageLoader(override val filePath: JpgFilePath) extends ImageIORgbImageLoader(filePath) {
+class JpgRgbImageLoader(override val filePath: JpgFilePath) extends ImageIOFileRgbImageLoader(filePath) {
 
 }
