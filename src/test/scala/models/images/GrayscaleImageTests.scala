@@ -1,6 +1,6 @@
 package models.images
 
-import models.pixels.{GrayscalePixel, RgbPixel}
+import models.pixels.GrayscalePixel
 import org.scalatest.FunSuite
 
 class GrayscaleImageTests extends FunSuite {

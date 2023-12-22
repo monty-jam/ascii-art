@@ -3,8 +3,6 @@ package commands.loaders.fileloaders
 import commands.loaders.Loader
 import models.filepaths.FilePath
 
-import scala.annotation.meta.param
-
 /**
  * Abstract class for loading files
  * @param filePath path to file

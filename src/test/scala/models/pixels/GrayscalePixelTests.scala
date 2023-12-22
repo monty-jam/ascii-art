@@ -1,6 +1,5 @@
 package models.pixels
 
-import models.filepaths.JpgFilePath
 import org.scalatest.FunSuite
 
 class GrayscalePixelTests extends FunSuite {

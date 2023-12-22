@@ -1,7 +1,7 @@
 package models.images
 
-import org.scalatest.FunSuite
 import models.pixels.Pixel
+import org.scalatest.FunSuite
 
 class ImageTests extends FunSuite {
 
