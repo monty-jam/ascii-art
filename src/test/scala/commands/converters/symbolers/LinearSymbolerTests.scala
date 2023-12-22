@@ -1,7 +1,7 @@
 package commands.converters.symbolers
 
-import models.Images.{AsciiImage, GrayscaleImage}
-import models.Pixels.{AsciiPixel, GrayscalePixel}
+import models.images.{AsciiImage, GrayscaleImage}
+import models.pixels.{AsciiPixel, GrayscalePixel}
 import org.scalatest.FunSuite
 
 class LinearSymbolerTests extends FunSuite {

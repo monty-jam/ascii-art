@@ -1,7 +1,7 @@
 package commands.filters
 
-import models.Images.GrayscaleImage
-import models.Pixels.GrayscalePixel
+import models.images.GrayscaleImage
+import models.pixels.GrayscalePixel
 
 class InverseGrayscaleFilter extends GrayscaleFilter {
 

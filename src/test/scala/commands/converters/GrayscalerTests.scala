@@ -1,7 +1,7 @@
 package commands.converters
 
-import models.Images.{GrayscaleImage, RgbImage}
-import models.Pixels.{GrayscalePixel, RgbPixel}
+import models.images.{GrayscaleImage, RgbImage}
+import models.pixels.{GrayscalePixel, RgbPixel}
 import org.scalatest.FunSuite
 
 

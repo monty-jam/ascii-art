@@ -1,4 +1,4 @@
-package models.FilePaths
+package models.filepaths
 
 case class JpgFilePath(override val filePathValue: String) extends FilePath(filePathValue) {
   if (filePathValue.split('.').last != "jpg") {

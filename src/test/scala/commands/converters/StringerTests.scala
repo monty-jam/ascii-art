@@ -1,7 +1,7 @@
 package commands.converters
 
-import models.Images.AsciiImage
-import models.Pixels.AsciiPixel
+import models.images.AsciiImage
+import models.pixels.AsciiPixel
 import org.scalatest.FunSuite
 
 

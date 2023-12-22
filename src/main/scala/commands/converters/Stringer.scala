@@ -1,6 +1,6 @@
 package commands.converters
 
-import models.Images.AsciiImage
+import models.images.AsciiImage
 
 class Stringer extends Converter[AsciiImage, String] {
   override def convert(source: AsciiImage): String = {

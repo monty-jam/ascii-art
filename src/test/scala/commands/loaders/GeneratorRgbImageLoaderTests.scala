@@ -1,7 +1,7 @@
 package commands.loaders
 
-import models.Images.RgbImage
-import models.Pixels.Pixel
+import models.images.RgbImage
+import models.pixels.Pixel
 import org.scalatest.FunSuite
 
 class GeneratorRgbImageLoaderTests extends FunSuite {
