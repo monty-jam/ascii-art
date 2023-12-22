@@ -1,6 +1,6 @@
 package models.images
 
-import models.pixels.{AsciiPixel, Pixel}
+import models.pixels.AsciiPixel
 import org.scalatest.FunSuite
 
 class AsciiImageTests extends FunSuite {

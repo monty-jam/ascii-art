@@ -2,7 +2,7 @@ package commands.exporters
 
 import org.scalatest.FunSuite
 
-import java.io.{ByteArrayOutputStream, OutputStream, PrintStream}
+import java.io.{ByteArrayOutputStream, PrintStream}
 
 class StdOutputExporterTests extends FunSuite {
 

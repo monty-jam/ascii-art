@@ -1,7 +1,7 @@
 package commands.loaders.fileloaders
 
-import models.images.RgbImage
 import models.filepaths.FilePath
+import models.images.RgbImage
 import models.pixels.RgbPixel
 
 import java.awt.image.BufferedImage

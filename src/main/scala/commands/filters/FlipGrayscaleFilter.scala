@@ -3,8 +3,6 @@ package commands.filters
 import models.images.GrayscaleImage
 import models.pixels.GrayscalePixel
 
-import scala.annotation.meta.param
-
 /**
  * Filter that flips a Grayscale Image
  */
