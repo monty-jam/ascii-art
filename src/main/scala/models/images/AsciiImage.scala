@@ -1,6 +1,6 @@
-package models.Images
+package models.images
 
-import models.Pixels.AsciiPixel
+import models.pixels.AsciiPixel
 
 case class AsciiImage(override val pixelGrid: Seq[Seq[AsciiPixel]]) extends Image(pixelGrid) {
 }

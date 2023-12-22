@@ -1,8 +1,8 @@
 package commands.loaders
 
 import commands.loaders.fileloaders.ImageIOFileRgbImageLoader
-import models.FilePaths.FilePath
-import models.Images.RgbImage
+import models.filepaths.FilePath
+import models.images.RgbImage
 import org.scalatest.FunSuite
 
 import java.awt.Color

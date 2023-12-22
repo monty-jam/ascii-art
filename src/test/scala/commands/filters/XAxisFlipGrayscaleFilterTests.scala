@@ -1,7 +1,7 @@
 package commands.filters
 
-import models.Images.GrayscaleImage
-import models.Pixels.GrayscalePixel
+import models.images.GrayscaleImage
+import models.pixels.GrayscalePixel
 import org.scalatest.FunSuite
 
 class XAxisFlipGrayscaleFilterTests extends FunSuite {

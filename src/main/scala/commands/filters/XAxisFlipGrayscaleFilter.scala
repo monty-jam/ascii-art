@@ -1,6 +1,6 @@
 package commands.filters
 
-import models.Images.GrayscaleImage
+import models.images.GrayscaleImage
 
 
 class XAxisFlipGrayscaleFilter extends FlipGrayscaleFilter {

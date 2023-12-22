@@ -1,8 +1,11 @@
 package commands.converters.symbolers
 
-import models.Images.{AsciiImage, GrayscaleImage}
-import models.Pixels.AsciiPixel
+import models.images.{AsciiImage, GrayscaleImage}
+import models.pixels.AsciiPixel
 
+/**
+ * Abstract class for converting grayscale images to ascii images using a non-linear table
+ */
 class NonLinearSymboler extends Symboler {
   override def convert(source: GrayscaleImage): AsciiImage = {
     var pixelGrid: List[List[AsciiPixel]] = List()

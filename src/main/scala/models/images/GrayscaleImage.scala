@@ -1,6 +1,6 @@
-package models.Images
+package models.images
 
-import models.Pixels.GrayscalePixel
+import models.pixels.GrayscalePixel
 
 case class GrayscaleImage(override val pixelGrid: Seq[Seq[GrayscalePixel]]) extends Image(pixelGrid) {
 }

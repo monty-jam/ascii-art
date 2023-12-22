@@ -1,8 +1,8 @@
 package commands.loaders
 
 import commands.loaders.fileloaders.JpgRgbImageLoader
-import models.FilePaths.JpgFilePath
-import models.Images.RgbImage
+import models.filepaths.JpgFilePath
+import models.images.RgbImage
 import org.scalatest.FunSuite
 
 class JpgRgbImageLoaderTests extends FunSuite {

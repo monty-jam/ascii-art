@@ -1,6 +1,6 @@
 package commands.loaders
 
-import models.Images.RgbImage
+import models.images.RgbImage
 
 trait RgbImageLoader extends Loader[RgbImage] {
 

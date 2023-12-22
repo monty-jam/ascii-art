@@ -1,7 +1,7 @@
 package commands.loaders
 
-import models.Images.RgbImage
-import models.Pixels.RgbPixel
+import models.images.RgbImage
+import models.pixels.RgbPixel
 
 class GeneratorRgbImageLoader extends RgbImageLoader {
   override def load(): RgbImage = {

@@ -1,7 +1,7 @@
 package commands.converters
 
-import models.Images.{GrayscaleImage, RgbImage}
-import models.Pixels.GrayscalePixel
+import models.images.{GrayscaleImage, RgbImage}
+import models.pixels.GrayscalePixel
 
 class Grayscaler extends Converter[RgbImage, GrayscaleImage] {
   override def convert(source: RgbImage) : GrayscaleImage = {

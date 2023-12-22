@@ -1,6 +1,6 @@
-package models.Images
+package models.images
 
-import models.Pixels.Pixel
+import models.pixels.Pixel
 
 class Image[T] (protected val pixelGrid: Seq[Seq[Pixel[T]]]) {
   if (pixelGrid.isEmpty)
